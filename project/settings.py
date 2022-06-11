@@ -42,7 +42,19 @@ INSTALLED_APPS = [
     #own
     'awards',
     'bootstrap3',
+    'cloudinary',
 ]
+
+#Cloudinary Classes
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+#Adding config
+cloudinary.config(
+    cloud_name = 'dxv5ismd8',
+    api_key = '839698641748619',
+    api_secret = 'T_Mx9oL-rqgmEoDzyimZqc87kmg',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -110,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
