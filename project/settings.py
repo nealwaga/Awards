@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'awards',
     'bootstrap3',
     'cloudinary',
+    'django_registration',
 ]
 
 #Cloudinary Classes
