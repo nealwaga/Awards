@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 import datetime as  dt
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -38,3 +39,18 @@ def past_days_site(request, past_date):
         return redirect(site_of_day)
 
     return render(request, 'all-sites/past-sites.html', {"date": date}) 
+
+
+@login_required(login_url='/accounts/login/')
+def search_results(request): 
+    
+    if 'site' in request.GET and request.GET["site"]:
+        search_term = request.GET.get("site")
+        searched_websites = Site.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-sites/search.html',{"message":message,"websites": searched_websites})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-sites/search.html',{"message":message})
