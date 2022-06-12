@@ -1,23 +1,43 @@
-{% extends 'all-sites/base.html'%} {% block content %}
-
+{%extends 'all-sites/base.html'%} {% load static% } {% block content %}
 <div class="container">
 
-    <div class="row">
-        <img src="{{site.image.url}}" class="img-responsive" alt="">
+   <h2> Projects </h2>  
+
+    <div class="row" >
+     <div class="col-md-3" >
+
+        <img class="card-img-top"  src="{{site.image.url}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{site.title}}</h5>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            <p class="card-text">Owner: {{site.developer}}</p>
+
+            <p class="card-text">Published on: {{site.pub_date}}</p>
+            <div class="row">
+        <p>Posted {{site.pub_date|timesince}} by {{site.developer.first_name}}</p>
+        {% include 'partials/_alerts.html' %}
+        {% for rate_item in rate %}
+                     
+
+        <h1 class="text-center"> My Rate: {{rate_item.average}}</h1>
+            {% endfor %}
+        <h1 class="text-center">Total Votes: {{total_rates}}</h1>
+
+        <form action="{% url 'site_rate' site.id %}" method="post">
+            {% csrf_token %} {{ rating_form }}
+            {% if user.is_authenticated %}
+                <input  type="hidden" name="user_id" value="{{ user.id }}">
+                <input  type="hidden" name="post_id" value="{{ site.id }}">
+
+            {% else %}
+                <input  type="hidden" name="user_id" value="0">
+            {% endif %}
+            <button type="submit" class="btn btn-success btn-lg"> Submit </button>
+        </form>
+
     </div>
 
-    <div class="row">
-        <h1 class="text-center">{{site.title}}</h1>
-    </div>
-
-    <div class="row">
-        <p>{{site.url}}</p>
-    </div>
-
-    <div class="row">
-        <p>Posted {{site.pub_date|timesince}} by {{site.deveoper.first_name}}</p>
-    </div>
 
 </div>
 
-{% endblock %} 
+{% endblock %}

@@ -1,30 +1,31 @@
-{% extends 'all-sites/base.html' %} {% block content %}
-
+{ %extends 'all-sites/base.html' %} {% block content %}
 <div class="container">
 
     <div class="row">
         {% if websites%}
         <h2>Found {{ websites|length }} of searched term {{message}}</h2>
         {% else %}
-        <h2> Found nothing of the search term :( {{message}}</h2>
+        <h3> Found nothing for the search term {{message}}</h3>
         {% endif %}
 
     </div>
 
     <div class="row">
-        {% if awards %} {% for site in awards %}
-        <div class="col-sm-6 col-md-3">
-            <h1>{{site.title}}</h1>
-            <h3>{{site.url}}</h3>
-            <p>Posted {{site.pub_date|timesince}} by {{site.developer.first_name}}</p>
 
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <img src="{{site.image.url}}" class="img-responsive" alt="Image">
+        {% if websites %} {% for site in websites %}
+        <div class="column" style="width: 37.2rem;">
+
+            <img class="card-img-top" style="width: 355px; height: 400px;" src="{{site.image.url}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{site.title}}</h5>
+                <p class="card-text">Owner: {{site.developer}}</p>
+                <p class="card-text">Published on: {{site.pub_date}}</p>
+                <p class="card-text">Tag: {{site.tag}}</p>
+
+                <a href="{{site.url}}" class="btn btn-primary">Visit {{site.developer}}'s project</a>
+            </div>
         </div>
         {% endfor %} {% endif %}
     </div>
-
 </div>
-
-{% endblock %} 
+{% endblock %}
