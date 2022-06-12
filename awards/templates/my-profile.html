@@ -1,0 +1,31 @@
+{%extends 'all-sites/base.html'%} {% block content %} {{block.super}}
+
+  <div class="card mb-3" style="max-width: 100%;">
+  <div class="row no-gutters">
+
+    <div class="col-md-4">
+      <img src="{{user_profile.profile_pic.url}}" class="card-img" alt="profile-img">
+    </div>
+
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{request.user}}'s Profile</h5>
+        <p class="card-text-text-muted">Bio :{{user_profile.bio}}</p>
+        <p class="card-text">Phone Number :{{user_profile.phone_number}}</p>
+        <p class="card-text">Username :{{request.user}}</p>
+        <small class="text-muted">Projects Uploaded</small></p>
+
+        <ul class="container details">
+                        
+            {% for site_item in site %}
+            <p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{site_item.title}}</p>
+        
+            {%endfor%} 
+        </ul>     
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
