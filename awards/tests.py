@@ -30,7 +30,7 @@ class UserProfileTestClass(TestCase):
     
     def setUp(self):
         self.user = User(first_name="neal", last_name="waga",
-                         username="briankiiru", email="neal@gmail.com",)
+                         username="waganeal", email="neal@gmail.com",)
         self.user.save()
         self.profile = UserProfile(user=self.user, bio="None")
         self.profile.save()
