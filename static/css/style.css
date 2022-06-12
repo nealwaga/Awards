@@ -5,3 +5,31 @@ h1 {
 h3 {
     color: black;
 }
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+.row {
+    margin: 0 -5px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://i.pinimg.com/564x/34/14/76/3414766e56a6df6f713957e76c6489cc.jpg');
+    background-size: cover;
+    overflow-y: scroll;
+}
+
+.card-body {
+    background-color: rgb(164, 170, 170);
+}

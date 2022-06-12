@@ -153,7 +153,7 @@ def register(request):
             user_profile = UserProfile()
             user_profile.user = user
             # user_profile.save()
-            user_profile.save()
+            # user_profile.save()
             registered = True
             
 
@@ -173,7 +173,7 @@ def register(request):
 @login_required(login_url='/accounts/login/')
 def create_profile(request):
     current_user_id = request.user.id
-    user_profile = UserProfile.objects.get(user_id=current_user_id)
+    user_profile = UserProfile.objects.get (user_id=current_user_id)
     if request.method == 'POST':
 
         form = UserProfileForm(request.POST, request.FILES)
@@ -196,7 +196,7 @@ def create_profile(request):
 @login_required(login_url='/accounts/login/')
 def my_profile(request):
     current_user_id = request.user.id
-    user_profile = UserProfile.objects.get(user_id=current_user_id)
+    user_profile = UserProfile.objects.get (user_id=current_user_id)
     
     try:
         profile = UserProfile.objects.get(user_id=current_user_id)
@@ -268,6 +268,8 @@ def site_rate(request, pk):
         return render(request, 'all-sites/site.html', context)
 
     return render(request,'all-sites/today-sites.html')
+
+
 
 class UserProfileViewSet(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all()
