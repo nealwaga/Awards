@@ -16,16 +16,19 @@
 
             <p class="card-text">Published on: {{site_item.pub_date}}</p>
             <a href="{{site_item.url}}" class="btn btn-info" target="_blank">Visit {{site_item.developer}}'s Project</a>
-            <a href="{% url 'site_rate' site_item.id %} " class="btn btn-secondary" target="_blank">Vote</a>
+            <a href="{% url 'site_rate' %} " class="btn btn-secondary" target="_blank">Vote</a>
+            <!-- <a href="{% url 'site_rate' site_item.id %} " class="btn btn-secondary" target="_blank">Vote</a> -->
 
         </div>
         
     </div>
 
     {% empty %}
+
     <div class="row">
         <h2 class="text-center">Nothing to show today</h2>
     </div>
+    
     {% endfor %}
     
   </div>

@@ -10,7 +10,8 @@ urlpatterns = [
     url(r'^search/', views.search_results, name='search_results'),
     url(r'^site(\d+)', views.site, name ='site'),
     url(r'^new/site$', views.new_site, name='new-site'),
-    url('site_rate/<int:pk>/',views.site_rate,name="site_rate"),
+
+    url('site_rate/<int:pk>/', views.site_rate, name="site_rate"),
     url(r"^profile/(\d+)", views.profile, name="profile"),
     
     url(r'^myprofile/$',views.my_profile,name = 'my-profile'),

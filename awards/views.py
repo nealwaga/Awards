@@ -267,7 +267,7 @@ def site_rate(request, pk):
         }
         return render(request, 'all-sites/site.html', context)
 
-    return render(request,'all-sites/today-sites.html')
+    return render(request, 'all-sites/today-sites.html')
 
 
 
