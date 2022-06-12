@@ -1,4 +1,28 @@
 {% extends 'all-sites/base.html' %} {% block content %} {{block.super}}
 
+<div class="container">
+
+    <!-- Looping through -->
+    {% for site_item in site %}
+
+    <div class="row">
+        <!-- displaying News articles -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <h2 class="text-center"> {{ site_item.title }} </h2>
+            <p class="text-center">{{site_item.pub_date}} </p>
+            <p class="text-center">{{site_item.url}} </p>
+            <img src="{{site_item.image.url}}" class="img-responsive" alt="Image">
+
+        </div>
+
+    </div>
+
+    {% empty %}
+    <div class="row">
+        <h2 class="text-center">Nothing featured today</h2>
+    </div>
+    {% endfor %}
+
+</div>
 
 {% endblock %}

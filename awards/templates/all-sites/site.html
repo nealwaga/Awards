@@ -1,0 +1,23 @@
+{% extends 'all-sites/base.html'%} {% block content %}
+
+<div class="container">
+
+    <div class="row">
+        <img src="{{site.image.url}}" class="img-responsive" alt="">
+    </div>
+
+    <div class="row">
+        <h1 class="text-center">{{site.title}}</h1>
+    </div>
+
+    <div class="row">
+        <p>{{site.url}}</p>
+    </div>
+
+    <div class="row">
+        <p>Posted {{site.pub_date|timesince}} by {{site.deveoper.first_name}}</p>
+    </div>
+
+</div>
+
+{% endblock %} 

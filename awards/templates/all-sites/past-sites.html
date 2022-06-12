@@ -1,4 +1,22 @@
 {% extends 'all-sites/base.html' %} {% block content %} {{block.super}}
 
+<div class="container">
+    <!-- Looping through -->
+    % for sites_item in site %}
+
+    <div class="row">
+        <!-- displaying articles -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <h2 class="text-center"> {{ site_item.title }} </h2>
+            <p class="text-center">{{site_item.pub_date}} </p>
+        </div>
+    </div>
+
+    {% empty %}
+    <div class="row">
+        <h2 class="text-center">There was nothing featured on this day.</h2>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
