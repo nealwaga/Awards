@@ -23,3 +23,10 @@ class UserProfile (models.Model):
     def update_bio(self, bio):
         self.bio = bio
         self.save()
+
+
+class tags(models.Model):
+    name = models.CharField (max_length=10)
+
+    def __str__(self):
+        return self.name
