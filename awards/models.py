@@ -66,3 +66,21 @@ class Project (models.Model):
 
     def save_site(self):
         self.save()  
+
+
+class Rate (models.Model):
+    user = models.ForeignKey (User, on_delete=models.CASCADE, null=True)
+    post = models.ForeignKey (Project, on_delete=models.CASCADE, related_name='likes', null=True)
+    content = models.IntegerField (validators=[MinValueValidator(1), MaxValueValidator(10)])
+    design = models.IntegerField (validators=[MinValueValidator(1), MaxValueValidator(10)])
+    usability = models.IntegerField (validators=[MinValueValidator(1), MaxValueValidator(10)])
+    average = models.IntegerField (default=0)
+
+    def save_rate(self):
+        self.save()
+
+    def delete_rate(self):
+        self.delete()
+
+    class Meta:
+        db_table = 'ratings'
