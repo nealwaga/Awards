@@ -33,7 +33,7 @@ class tags(models.Model):
         return self.name
 
 
-class Project (models.Model):
+class Site (models.Model):
     title = models.CharField (max_length=20)
     image = CloudinaryField ('screenshot')
     url = models.URLField (max_length=100, default='website.url')
@@ -70,7 +70,7 @@ class Project (models.Model):
 
 class Rate (models.Model):
     user = models.ForeignKey (User, on_delete=models.CASCADE, null=True)
-    post = models.ForeignKey (Project, on_delete=models.CASCADE, related_name='likes', null=True)
+    post = models.ForeignKey (Site, on_delete=models.CASCADE, related_name='likes', null=True)
     content = models.IntegerField (validators=[MinValueValidator(1), MaxValueValidator(10)])
     design = models.IntegerField (validators=[MinValueValidator(1), MaxValueValidator(10)])
     usability = models.IntegerField (validators=[MinValueValidator(1), MaxValueValidator(10)])
