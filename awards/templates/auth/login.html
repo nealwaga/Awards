@@ -1,4 +1,4 @@
-{% extends "auth/base.html" %} { %block content %}
+{% extends "auth/base.html" %} {% block content %}
 
 <form class="form-signin" style="margin-top: 100;" method="POST">
     {% csrf_token %}
@@ -18,4 +18,4 @@
     <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
 </form>
 
-{%endblock%}
+{% endblock %}
