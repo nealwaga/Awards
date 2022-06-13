@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url 
-from decouple import config, Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)14t)*951$-%-w+368h4$fozi1_&#1a!chcihe=mf5a1l6lj=h'
+SECRET_KEY = 'django-insecure-lim+@1ippp7dp==#f1sp)q_^p*0vdx+mp6p&%&cxe7^4&$51l6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,26 +41,17 @@ INSTALLED_APPS = [
 
     #own
     'awards',
-    'bootstrap3',
     'bootstrap4',
-    'cloudinary',
-    'django_registration',
-    'tinymce',
+    'storages',
+    'crispy_forms',
+    'mapbox_location_field',
+    'phonenumber_field',
     'rest_framework',
-    'rest_authtoken',
-    'rest_framework.authtoken',
+
 ]
 
-#Cloudinary Classes
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-#Adding config
-cloudinary.config(
-    cloud_name = 'dxv5ismd8',
-    api_key = '839698641748619',
-    api_secret = 'T_Mx9oL-rqgmEoDzyimZqc87kmg',
-)
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -98,19 +87,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'awards',
-        'USER': 'neal',
-    'PASSWORD': 'Wneal9.',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -139,11 +119,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Africa/Nairobi'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
-USE_L10N = True
 
 USE_TZ = True
 
@@ -151,38 +129,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+#Static config
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 
-#Configuring the location for media
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-LOGIN_URL = "/accounts/login/" # this is the name of the url
-LOGOUT_REDIRECT_URL = "/accounts/login/"
-LOGIN_REDIRECT_URL = "/"
-REGISTRATION_OPEN= True
-ACCOUNT_ACTIVATION_DAYS = 5
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'), #DJANGO DEBUG LEVEL
-        },
-    },
-}
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

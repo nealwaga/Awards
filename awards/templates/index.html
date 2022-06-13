@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load mapbox_location_field_tags %}
+{% location_field_includes %}
+{% include_jquery %}
+
+{% block content %}
+<div class="display-all-projects d-flex justify-content-center pt-4">
+    {% for project in all_projects %}
+    <div class="card m-2" style="width: 20rem;">
+        <img class="card-img-top" style="height: 50%" src="{{project.project_image.url}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title font-weight-bold">{{project.title}}</h5>
+            <div class="d-flex justify-content-around">
+                <a href="{% url 'like_project_design' user.id project.id %}" title="Great Design">
+                    <i class="fas fa-thumbs-up"></i>
+                    {{project.saved_likes_design}}
+                </a>
+                <a href="{% url 'like_project_usability' user.id project.id %}" title="User Friendly">
+                    <i class="fas fa-thumbs-up"></i>
+                    {{project.saved_likes_usability}}
+                </a>
+                <a href="{% url 'like_project_content' user.id project.id %}" title="Great Content">
+                    <i class="fas fa-thumbs-up"></i>
+                    {{project.saved_likes_content}}
+                </a>
+            </div>
+            <p class="card-text">
+                {{project.description|truncatechars:50}}
+                <a href="{% url 'project-details' project.id %}"> View More </a>
+            </p>
+            <p class="small">Location:{{project.location}}
+                <span class="float-right">Created:{{project.created_on}}</span>
+            </p>
+            <div class="text-center">
+                <a href="{{project.project_url}}" class="btn btn-light"> Link </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

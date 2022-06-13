@@ -1,0 +1,184 @@
+*{
+    background-color: #FFF0F0;
+    color: #463333;
+}
+
+hr{
+    border: #463333 1px solid;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-primary, .btn, .btn-light{
+    background-color: #463333;
+    color: #FFF0F0;
+    border: #FFF0F0 1px solid;
+}
+
+.btn-primary:hover, .btn:hover, .btn-light:hover{
+    background-color: #FFF0F0;
+    color: #463333;
+    border: #463333 3px solid;
+}
+
+a{
+    text-decoration: none;
+    color: #463333;
+    font-weight: bold;
+}
+a:hover{
+    text-decoration: none;
+    color: #835858;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+/* Accounts pages - login and signin */
+.accounts-page{
+    margin-top: 6vh;
+}
+.ig-image-accounts{
+    display: block;
+    margin-left: auto;
+}
+.account-nav{
+    margin-top: 2vh;
+    padding: 2vw;
+}
+.separator::before,.separator::after {
+    display: inline-block;
+    content: "";
+    border-top: 2px solid #463333;
+    width: 4rem;
+    margin:-0.5rem 1rem;
+    transform: translateY(-1rem);
+    opacity: 0.5;
+}
+.accounts-submit{
+    margin: 1rem;
+    padding: .5rem;
+    font-weight: bold;
+}
+
+    /* Login-page */
+    .password-reset-pages{
+        width: 70%;
+        padding: 2vw;
+        top: 20%;
+        position: relative;
+        border: 1px solid #835858;
+        background-color:#FFF0F0;
+    }
+    .login-section{
+        border: 1px solid #DCDCDC;
+        width: 50%;
+        margin-top: 2vh;
+        background-color:#FFF0F0;
+    }
+    .login-form{
+        width: 90%;
+        margin: 2vh auto;
+    }
+    .accounts-username, .accounts-password, .accounts-email{
+        background: transparent;
+        border: 0 solid;
+        border-radius: 1%;
+        border: 1px solid #463333;
+        color: white;
+        display: block;
+        margin: 1rem;
+        padding: .5rem;
+        transition: 250ms ease-in;
+        width: calc(100% - 3rem);
+    }
+
+    /* Navbar styling */
+.main-nav ul{
+    display: flex;
+    margin-right:8vw;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .main-nav a{
+    color: inherit;
+    text-decoration: none;
+    padding: 1rem;
+  }
+  
+  .main-nav a:hover{
+    font-size: larger;
+  }
+  
+  .main-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1vw;
+    height: 60px;
+    width: 100%;
+    
+  }
+
+  .brand-logo:hover{
+    text-decoration: none;
+  }
+  
+  .brand-logo:focus{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.25em;
+    color: inherit;
+    margin-left:8vw;
+    text-decoration: none;
+  }
+
+  .brand-logo-name {
+    margin-left: 1rem;
+    font-size:3rem;
+    text-decoration: none;
+  }
+  
+  .brand-logo-name:hover{
+    text-decoration: none !important;
+  }
+  
+  .brand-logo-name:focus{
+    text-decoration: none;
+  }
+
+  .nav-items{
+    font-size: large;
+    font-weight: bold;
+    padding: 0 1.5vw;
+  }
+
+  .search-text{
+      border-radius:2%;
+  }
+
+/* Project display */
+.project-detail-image{
+    width: 40vw;
+    height: 60vh;
+}
+
+.project-detail-details{
+    width: 40%;
+    padding: 0 4vw;
+}
+
+.project-detail-profpic{
+    width: 3vw;
+    height: 5vh;
+    border-radius: 50%;
+}
+
+#change-photo-form{
+    display: hide;
+}

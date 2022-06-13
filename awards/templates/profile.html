@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="pt-3">
+    <!-- About user -->
+    <div class="row user-profile-display pb-3">
+        <div class="col-md-4 profile_section_one">
+            {% if user_profile.prof_pic %}
+            <img src="{{user_profile.prof_pic.url}}" class="prof_pic rounded-circle ig-image-accounts" alt="" srcset="">
+            {% else %}
+            {% load static %}
+            <img src="{% static 'css/assets/avatar.png' %}" class="prof_pic rounded-circle ig-image-accounts" alt=""
+                srcset="">
+            {% endif %}
+        </div>
+        <div class="col-md-3">
+            <h4 class="font-weight-bold">{{user_name.user.username}}</h4>
+            <div class="profile_section_two">
+                <p>
+                    {{user_name.username}}
+                </p>
+                <p class="font-weight-bold">{{user_profile.name}}</p>
+                <p>{{user_profile.bio}}</p>
+                {% if user_profile.website %}
+                <a href="{{user_profile.website}}">Personal Website</a>
+                {% endif %}
+                {% if user_profile.linkedin %}
+                <a href="{{user_profile.linkedin}}">Linkedin</a>
+                {% endif %}
+                <a href="{{user_profile.user.email}}">{{user_profile.user.email}}</a>
+            </div>
+        </div>
+
+        <div class="col-md-5 pt-3">
+            
+            {% if user_profile.phone %}
+            <p>Cell No: {{user_profile.phone}}</p>
+            {% endif %}
+
+            {% if user_profile.fax_number %}
+            <p>Fax: {{user_profile.phone}}</p>
+            {% endif %}
+            {% if user.username == user_profile.user.username %}
+            <a href="{% url 'profile_update' user.username %}" class="btn btn-light">
+                Edit Profile
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    <hr>
+    <!-- Post display by user -->
+    <div class="d-flex justify-content-center pt-2">
+        {% for project in user_projects %}
+        <div class="card m-2" style="width: 18rem;">
+            <a href="{% url 'project-details' project.id %}">
+                <img src="{{project.project_image.url}}" class="card-img-top" title="{{project.title}}">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

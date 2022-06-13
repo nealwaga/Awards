@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="project-display d-flex justify-content-center pt-5">
+    <div class="project-detail">
+        <div class="">
+            <div class="">
+                <h4 class="font-weight-bold">
+                    <a href="{{project.project_url}}">
+                    {{project.title}}</a>
+                </h4>
+            </div>
+        </div>
+        <img src="{{project.project_image.url}}" class="project-detail-image">
+    </div>
+    <div class="project-detail-details">
+        <h5 class="font-weight-bold pt-1">
+            {% if user_profile.prof_pic %}
+            <span><img src="{{user.prof_pic.url}}" class="project-detail-profpic"></span>
+            {% else %}
+            {% load static %}
+            <span><img src="{% static 'css/assets/avatar.png' %}" class="project-detail-profpic"></span>
+            {% endif %}
+            <a href="{% url 'user_profile' project.owner.id %}">{{user.name}}</a>
+        </h5>
+        <br>
+        <div class="d-flex justify-content-between">
+            <a href="{% url 'like_project_design' user.id project.id %}" title="Great Design">
+                Design <i class="fas fa-thumbs-up"></i>
+                {{project.saved_likes_design}}
+            </a>
+            <a href="{% url 'like_project_usability' user.id project.id %}" title="User Friendly">
+                Usability <i class="fas fa-thumbs-up"></i>
+                {{project.saved_likes_usability}}
+            </a>
+            <a href="{% url 'like_project_content' user.id project.id %}" title="Great Content">
+                Content <i class="fas fa-thumbs-up"></i>
+                {{project.saved_likes_content}}
+            </a>
+        </div>
+        <br>
+        <p>{{project.description}}</p>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="small">Location:{{project.location}}</p>
+            </div>
+            <div class="col-md-6">
+                <p class="float-right small">{{project.created_on}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

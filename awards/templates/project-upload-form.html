@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="project-upload-form d-flex justify-content-center">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                <p>{{project_form.title|as_crispy_field}}</p>
+                <p>{{project_form.project_url|as_crispy_field}}</p>
+                <p>{{project_form.description|as_crispy_field}}</p>
+            </div>
+            <div class="col-md-6">
+                <p>{{project_form.project_image|as_crispy_field}}</p>
+                <p>{{project_form.location|as_crispy_field}}</p>
+            </div>
+        </div>
+        <div class="text-center">
+            <input type="submit" name="Submit" value="SUBMIT" class="accounts-submit btn-primary" /><br>
+        </div>
+    </form>
+    {{project_form.media}}
+</div>
+{% endblock %}

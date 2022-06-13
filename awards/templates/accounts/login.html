@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="accounts-page d-flex justify-content-center m-0 pt-4">
+    <div class="login-section text-center">
+        <div class="account-nav">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="font-type-bold float-left">Sign in to continue</p>
+                </div>
+                <div class="col-md-6">
+                    <h6 class="text-center">
+                        Don't have an account? <a href="{% url 'signup' %}">Sign Up</a>
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <form class="login-form" method="POST" action="">
+            {% csrf_token %}
+            <input type="text" name="username" class="accounts-username" autofocus="true" required="true"
+                placeholder="Username" />
+            <input type="password" name="password" class="accounts-password" required="true" placeholder="Password" />
+            {% for message in messages%}
+            <span class="message">{{message}}</span>
+            {% endfor %}
+            <input type="submit" name="Login" value="LOGIN NOW" class="accounts-submit btn-primary" /><br>
+        </form>
+        <div class="password-admin">
+
+            <h6 class="text-center"><a href="{% url 'reset_password' %}" class="font-weight-normal">Forgot password?</a></h6>
+            <br>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}

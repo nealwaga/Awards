@@ -14,33 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.conf.urls import include
-from django.contrib.auth import views
-from django.contrib.auth import views as auth_views
-from django_registration.backends.one_step.views import RegistrationView
-from decouple import config, Csv
-from rest_framework import routers
-from awards.views import *
-from rest_framework.authtoken.views import obtain_auth_token
-
-router = routers.DefaultRouter()
-router.register(r'profiles', UserProfileViewSet)
-router.register(r'users', UserViewSet)
-router.register(r'sites', SiteViewSet)
+from django.urls import path, include 
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 #Create here
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'', include('awards.urls')),
-    path('accounts/', include('django_registration.backends.one_step.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('logout/', auth_views.LogoutView.as_view()),
-    path('accounts/register/',RegistrationView.as_view(success_url='/accounts/login/'),
-        name='django_registration_register'),
-        
-    path(r'^tinymce/', include('tinymce.urls')),
-    path(r'', include(router.urls)),
-    path(r'api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-]
+    path('',include('awards.urls'))
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
