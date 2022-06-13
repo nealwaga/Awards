@@ -12,7 +12,7 @@ class Profile(models.Model):
     website = models.URLField(blank=True, max_length=50)
     name = models.CharField(blank=True, max_length=50)
     phone = PhoneNumberField(blank=True)
-    fax_number = PhoneNumberField(blank=True)
+    # fax_number = PhoneNumberField(blank=True)
     linkedin = models.URLField(blank=True)
 
     def __str__(self):

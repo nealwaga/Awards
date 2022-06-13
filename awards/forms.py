@@ -33,7 +33,7 @@ class ProjectUploadForm(ModelForm):
 class ProfileUpdateForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ['prof_pic','bio','website','name','phone','fax_number','linkedin']
+        fields = ['prof_pic','bio','website','name','phone', 'linkedin']
 
         def __init__(self, *args, **kwargs):
             super(ProfileUpdateForm, self).__init__(*args, **kwargs)
