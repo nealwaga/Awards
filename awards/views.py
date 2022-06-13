@@ -8,6 +8,9 @@ from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail,BadHeaderError
 
+from rest_framework import generics
+from .serializers import *
+
 
 # Create your views here.
 @unauthenticated_user
@@ -205,3 +208,21 @@ def like_project_content(request,user_id,project_id):
     new_like.save_like()
 
     return redirect('homepage')
+
+
+#Serializer View
+class ProfileList(generics.ListCreateAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+class ProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+class ProjectList(generics.ListCreateAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
