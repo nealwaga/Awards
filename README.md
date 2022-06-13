@@ -58,11 +58,11 @@ BDD focuses on how the user will interact with the application. What you will se
 5. Click on the upload project svg to add a project for others to view.
 
 ## Known Bugs
-None, but if you find a bug or would like to request a new function, reach out to me via [Gmail](waganeal@gmail.com) or on [LinkedIn](https://www.linkedin.com/in/nealwaga/)
+None, but if you find a bug or would like to request a new function, reach out to me via Gmail: waganeal@gmail.com or on [LinkedIn](https://www.linkedin.com/in/nealwaga/)
 
 
 ## [License](https://github.com/nealwaga/Awards/blob/master/LICENSE)
 
 
 ## Collaborate
-For any collaborations, reach me on [waganeal@gmail.com]()
+For any collaborations, reach me on waganeal@gmail.com
