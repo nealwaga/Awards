@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from mapbox_location_field.models import LocationField
+# from mapbox_location_field.models import LocationField
 from phonenumber_field.modelfields import PhoneNumberField
 
 
@@ -30,7 +30,7 @@ class Project(models.Model):
     project_image = models.ImageField(blank=False, upload_to='media')
     project_url = models.URLField(blank=False, max_length=255)
     created_on = models.DateField(auto_now_add=True)
-    location = LocationField(blank=True)
+    # location = LocationField(blank=True)
 
     def __str__(self):
         return self.title

@@ -22,7 +22,8 @@ class SignUpForm(UserCreationForm):
 class ProjectUploadForm(ModelForm):
     class Meta:
         model = Project
-        fields = ['title','description','project_image','project_url','location']
+        # fields = ['title','description','project_image','project_url','location']
+        fields = ['title','description','project_image','project_url']
 
         def __init__(self,*args, **kwargs):
             super(ProjectUploadForm, self).__init__(*args, **kwargs)

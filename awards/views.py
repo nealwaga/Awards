@@ -30,25 +30,23 @@ def signup(request):
             )
             user_profile.save_profile()
 
-            subject = 'Welcome to Awwards'
-            recipient_list = email
-            message =   '''   
-                        Hello,
+            # subject = 'Welcome to Awwards'
+            # recipient_list = email
+            # message =   '''   
+            #             Hello,
 
-                        Welcome to Awwards
+            #             Welcome to Awards
 
-                        Thank you for signing up. 
-                        We are excited to welcome you to the family.
+            #             Thank you for signing up. 
 
-                        Happy Posting.
-                        Awwards Family
+            #             Happy Posting.
                         
-                        '''
-            from_email = 'no-reply@example.com'
-            try:
-                send_mail(subject, message, from_email, [recipient_list])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+            #             '''
+            # from_email = 'no-reply@example.com'
+            # try:
+            #     send_mail(subject, message, from_email, [recipient_list])
+            # except BadHeaderError:
+            #     return HttpResponse('Invalid header found.')
 
             messages.success(request, "Account created successfully")
             return redirect('login')
@@ -148,7 +146,6 @@ def create_project(request):
             description = project_form.cleaned_data.get('description')
             project_image  = project_form.cleaned_data.get('project_image')
             project_url = project_form.cleaned_data.get('project_url')
-            location = project_form.cleaned_data.get('location')
             owner = Profile.objects.get(user=user.id)
             
             new_project = Project(
@@ -157,7 +154,6 @@ def create_project(request):
                 description=description,
                 project_image=project_image,
                 project_url=project_url,
-                location=location
             )
             new_project.save_project()
             return redirect('homepage')

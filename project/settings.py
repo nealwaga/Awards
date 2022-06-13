@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'storages',
     'crispy_forms',
-    'mapbox_location_field',
+    # 'mapbox_location_field',
     'phonenumber_field',
     'rest_framework',
 
@@ -125,6 +125,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+MAPBOX_KEY = 'pk.eyJ1IjoibmVhbHdhZ2EiLCJhIjoiY2w0Y2lybG8xMDA3YzNkcXR4anAxcDBsciJ9.jZ632qtTQtiHForiqyPazA'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
